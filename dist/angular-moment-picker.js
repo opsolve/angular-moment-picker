@@ -503,8 +503,11 @@
                     if (!date || (!date instanceof Date && isNaN(date.valueOf()) || date === 'Invalid Date'))
                         $scope.valueMoment = undefined;
                     else {
-                        var localeDateTime = $filter('date')(model, 'dateTime');
-                        $scope.valueMoment = moment(localeDateTime, $scope.format);
+                        var localeModel = $scope.format === 'L LT' ? $filter('date')(model, 'dateTime') : model;
+                        if ($scope.format === 'MM' && model.toString().length === 1) {
+                            localeModel = ('0' + model).slice(-2);
+                        }
+                        $scope.valueMoment = moment(localeModel, $scope.format);
                         $scope.view.moment = $scope.valueMoment.clone();
                         $scope.view.update();
                     }
