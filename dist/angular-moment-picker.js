@@ -138,7 +138,7 @@
 
             // utilities
             $scope.momentToDate = function (value) { return angular.isDefined(value) && value.isValid() ? value.clone().toDate() : undefined; }
-            $scope.valueUpdate = function () { if (!$scope.disabled) $scope.value = $scope.momentToDate($scope.valueMoment); }
+            $scope.valueUpdate = function () { $scope.value = $scope.momentToDate($scope.valueMoment); }
             $scope.limits = {
                 isAfterOrEqualMin: function (value, precision) {
                     return !angular.isDefined($scope.minDateMoment) || value.isAfter($scope.minDateMoment, precision) || value.isSame($scope.minDateMoment, precision);
