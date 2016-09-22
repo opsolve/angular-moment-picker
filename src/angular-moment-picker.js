@@ -608,7 +608,12 @@
             });
 
             // open/close listeners
-            $document.on('click', function () { if ($scope.view.isOpen) $timeout($scope.view.close); });
+            $document.on('mouseup', function () {
+                if ($scope.view.isOpen) {
+                    $timeout($scope.view.close);
+                    angular.element($scope.icon).attr('state', 'dirty');
+                }
+            });
             $scope.container.on('click', function (e) { e.stopPropagation(); });
             $scope.icon.on('click', function (e) {
                 e.stopPropagation();
