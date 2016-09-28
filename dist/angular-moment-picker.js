@@ -614,13 +614,17 @@
                     angular.element($scope.icon).attr('state', 'dirty');
                 }
             });
-            $scope.container.on('click', function (e) { e.stopPropagation(); });
-            $scope.icon.on('click', function (e) {
+            $scope.container.on('mouseup', function (e) { e.stopPropagation(); });
+            $scope.icon.on('mouseup', function (e) {
                 e.stopPropagation();
-                if (!$scope.view.isOpen) {
-                    $timeout($scope.view.open);
+                if (e.currentTarget.attributes.hasOwnProperty("disabled") && e.currentTarget.attributes.disabled.name === "disabled") {
+                    return false;
                 } else {
-                    $timeout($scope.view.close);
+                    if (!$scope.view.isOpen) {
+                        $timeout($scope.view.open);
+                    } else {
+                        $timeout($scope.view.close);
+                    }
                 }
             });
             angular.element($window).on('resize', $scope.view.position);
