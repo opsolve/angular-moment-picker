@@ -518,7 +518,7 @@
             $scope.picker = angular.element('<span class="moment-picker"></span>');
             $element.after($scope.picker);
             $scope.contents = $element.addClass('moment-picker-contents').removeAttr('moment-picker');
-            $scope.icon = angular.element($scope.contents[0].querySelector('.input-group-addon'));
+            $scope.icon = angular.element($scope.contents[0].querySelector('.date-time-picker-addon'));
             $scope.container = $compile($scope.template)($scope);
             $scope.picker.append($scope.contents);
             $scope.picker.append($scope.container);
