@@ -65,7 +65,7 @@
                 minDate: '=?',
                 maxDate: '=?',
                 today: '=?',
-                disabled: '=?osDisable',
+                disabled: '=?osDisabled',
                 change: '&?'
             };
             $timeout = timeout;
