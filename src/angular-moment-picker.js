@@ -77,7 +77,8 @@
             momentPicker = momentPickerProvider;
         };
         MomentPickerDirective.prototype.$inject = ['$timeout', '$sce', '$compile', '$document', '$window', 'momentPicker'];
-        MomentPickerDirective.prototype.link = function ($scope, $element, $attrs) {
+        MomentPickerDirective.prototype.require = "?^form",
+        MomentPickerDirective.prototype.link = function ($scope, $element, $attrs, $form) {
             $scope.template = (
                 '<div class="moment-picker-container {{view.selected}}-view" ' +
                     'ng-show="view.isOpen && !disabled" ng-class="{\'moment-picker-disabled\': disabled, \'open\': view.isOpen}">' +
@@ -529,6 +530,9 @@
 
             // properties listeners
             $scope.$watch('model', function (model, previous) {
+                if (angular.isDefined(model) && $form.$pristine) {
+                    $form.$setDirty();
+                }
                 if (angular.isDefined(model)) {
                     if (model !== null) {
                         var date = Date.parse(model);
