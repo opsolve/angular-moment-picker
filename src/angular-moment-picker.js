@@ -530,7 +530,7 @@
 
             // properties listeners
             $scope.$watch('model', function (model, previous) {
-                if (angular.isDefined(model) && $form.$pristine) {
+                if (angular.isDefined(model) && angular.isDefined($form) && $form.$pristine) {
                     $form.$setDirty();
                 }
                 if (angular.isDefined(model)) {
