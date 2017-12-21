@@ -1,3 +1,4 @@
+/*! Angular Moment Picker - v0.5.6 - https://github.com/indrimuska/angular-moment-picker - (c) 2015 Indri Muska - MIT */
 (function (angular) {
 
     var momentPickerProvider = (function () {
@@ -66,7 +67,8 @@
                     maxDate: '=?',
                     today: '=?',
                     disabled: '=?osDisabled',
-                    change: '&?'
+                    change: '&?',
+                    position: '@?'
                 };
             $timeout = timeout;
             $sce = sce;
@@ -239,15 +241,23 @@
                     position: function () {
                         $scope.picker.removeClass('top').removeClass('left');
 
-                        var container = $scope.container[0],
-                            offset = getOffset(container),
-                            top = offset.top - $window.pageYOffset,
-                            left = offset.left - $window.pageXOffset,
-                            winWidth = $window.innerWidth,
-                            winHeight = $window.innerHeight;
+                        if ($scope.position === 'top') {
+                            $scope.picker.addClass('top');
+                        }
+                        else if ($scope.position === 'left') {
+                            $scope.picker.addClass('left');
+                        }
+                        else if (!$scope.position) {
+                            var container = $scope.container[0],
+                                offset = getOffset(container),
+                                top = offset.top - $window.pageYOffset,
+                                left = offset.left - $window.pageXOffset,
+                                winWidth = $window.innerWidth,
+                                winHeight = $window.innerHeight;
 
-                        if (top + $window.pageYOffset - container.offsetHeight > 0 && top > winHeight / 2) $scope.picker.addClass('top');
-                        if (left + container.offsetWidth > winWidth) $scope.picker.addClass('left');
+                            if (top + $window.pageYOffset - container.offsetHeight > 0 && top > winHeight / 2) $scope.picker.addClass('top');
+                            if (left + container.offsetWidth > winWidth) $scope.picker.addClass('left');
+                        }                        
                     },
                     // utility
                     unit: function () { return $scope.view.selected == 'decade' ? 10 : 1; },
