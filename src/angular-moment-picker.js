@@ -82,69 +82,69 @@
             MomentPickerDirective.prototype.link = function ($scope, $element, $attrs, $form) {
                 $scope.template = (
                     '<div class="moment-picker-container {{view.selected}}-view" ' +
-                        'ng-show="view.isOpen && !disabled" ng-class="{\'moment-picker-disabled\': disabled, \'open\': view.isOpen}">' +
-                        '<table class="header-view">' +
-                        '<thead>' +
-                        '<tr>' +
-                        '<th ng-class="{disabled: !view.previous.selectable}" ng-bind-html="view.previous.label" ng-click="view.previous.set()"></th>' +
-                        '<th ng-bind="view.title" ng-click="view.setParentView()"></th>' +
-                        '<th ng-class="{disabled: !view.next.selectable}" ng-bind-html="view.next.label" ng-click="view.next.set()"></th>' +
-                        '</tr>' +
-                        '</thead>' +
-                        '</table>' +
-                        '<div class="moment-picker-specific-views">' +
-                        '<table ng-if="view.selected == \'decade\'">' +
-                        '<tbody>' +
-                        '<tr ng-repeat="fourYear in decadeView.fourYears">' +
-                        '<td ng-repeat="year in fourYear track by year.year" ' +
-                        'ng-class="year.class" ng-bind="year.label" ng-click="decadeView.setYear(year)"></td>' +
-                        '</tr>' +
-                        '</tbody>' +
-                        '</table>' +
-                        '<table ng-if="view.selected == \'year\'">' +
-                        '<tbody>' +
-                        '<tr ng-repeat="fourMonth in yearView.fourMonths">' +
-                        '<td ng-repeat="month in fourMonth track by month.month" ' +
-                        'ng-class="month.class" ng-bind="month.label" ng-click="yearView.setMonth(month)"></td>' +
-                        '</tr>' +
-                        '</tbody>' +
-                        '</table>' +
-                        '<table ng-if="view.selected == \'month\'">' +
-                        '<thead>' +
-                        '<tr>' +
-                        '<th ng-repeat="day in monthView.days" ng-bind="day"></th>' +
-                        '</tr>' +
-                        '</thead>' +
-                        '<tbody>' +
-                        '<tr ng-repeat="days in monthView.weeks">' +
-                        '<td ng-repeat="day in days track by day.date" ng-class="day.class" ng-bind="day.label" ng-click="monthView.setDate(day)"></td>' +
-                        '</tr>' +
-                        '</tbody>' +
-                        '</table>' +
-                        '<table ng-if="view.selected == \'day\'">' +
-                        '<tbody>' +
-                        '<tr ng-repeat="threeHours in dayView.threeHours">' +
-                        '<td ng-repeat="hour in threeHours track by hour.hour" ' +
-                        'ng-class="hour.class" ng-bind="hour.label" ng-click="dayView.setHour(hour)"></td>' +
-                        '</tr>' +
-                        '</tbody>' +
-                        '</table>' +
-                        '<table ng-if="view.selected == \'hour\'">' +
-                        '<tbody>' +
-                        '<tr ng-repeat="minutes in hourView.minutes">' +
-                        '<td ng-repeat="minute in minutes" ng-class="minute.class" ng-bind="minute.label" ng-click="hourView.setMinute(minute)"></td>' +
-                        '</tr>' +
-                        '</tbody>' +
-                        '</table>' +
-                        '<table ng-if="view.selected == \'minute\'">' +
-                        '<tbody>' +
-                        '<tr ng-repeat="seconds in minuteView.seconds">' +
-                        '<td ng-repeat="second in seconds" ng-class="second.class" ng-bind="second.label" ng-click="minuteView.setSecond(second)"></td>' +
-                        '</tr>' +
-                        '</tbody>' +
-                        '</table>' +
-                        '</div>' +
-                        '</div>'
+                    'ng-show="view.isOpen && !disabled" ng-class="{\'moment-picker-disabled\': disabled, \'open\': view.isOpen}">' +
+                    '<table class="header-view">' +
+                    '<thead>' +
+                    '<tr>' +
+                    '<th ng-class="{disabled: !view.previous.selectable}" ng-bind-html="view.previous.label" ng-click="view.previous.set()"></th>' +
+                    '<th ng-bind="view.title" ng-click="view.setParentView()"></th>' +
+                    '<th ng-class="{disabled: !view.next.selectable}" ng-bind-html="view.next.label" ng-click="view.next.set()"></th>' +
+                    '</tr>' +
+                    '</thead>' +
+                    '</table>' +
+                    '<div class="moment-picker-specific-views">' +
+                    '<table ng-if="view.selected == \'decade\'">' +
+                    '<tbody>' +
+                    '<tr ng-repeat="fourYear in decadeView.fourYears">' +
+                    '<td ng-repeat="year in fourYear track by year.year" ' +
+                    'ng-class="year.class" ng-bind="year.label" ng-click="decadeView.setYear(year)"></td>' +
+                    '</tr>' +
+                    '</tbody>' +
+                    '</table>' +
+                    '<table ng-if="view.selected == \'year\'">' +
+                    '<tbody>' +
+                    '<tr ng-repeat="fourMonth in yearView.fourMonths">' +
+                    '<td ng-repeat="month in fourMonth track by month.month" ' +
+                    'ng-class="month.class" ng-bind="month.label" ng-click="yearView.setMonth(month)"></td>' +
+                    '</tr>' +
+                    '</tbody>' +
+                    '</table>' +
+                    '<table ng-if="view.selected == \'month\'">' +
+                    '<thead>' +
+                    '<tr>' +
+                    '<th ng-repeat="day in monthView.days" ng-bind="day"></th>' +
+                    '</tr>' +
+                    '</thead>' +
+                    '<tbody>' +
+                    '<tr ng-repeat="days in monthView.weeks">' +
+                    '<td ng-repeat="day in days track by day.date" ng-class="day.class" ng-bind="day.label" ng-click="monthView.setDate(day)"></td>' +
+                    '</tr>' +
+                    '</tbody>' +
+                    '</table>' +
+                    '<table ng-if="view.selected == \'day\'">' +
+                    '<tbody>' +
+                    '<tr ng-repeat="threeHours in dayView.threeHours">' +
+                    '<td ng-repeat="hour in threeHours track by hour.hour" ' +
+                    'ng-class="hour.class" ng-bind="hour.label" ng-click="dayView.setHour(hour)"></td>' +
+                    '</tr>' +
+                    '</tbody>' +
+                    '</table>' +
+                    '<table ng-if="view.selected == \'hour\'">' +
+                    '<tbody>' +
+                    '<tr ng-repeat="minutes in hourView.minutes">' +
+                    '<td ng-repeat="minute in minutes" ng-class="minute.class" ng-bind="minute.label" ng-click="hourView.setMinute(minute)"></td>' +
+                    '</tr>' +
+                    '</tbody>' +
+                    '</table>' +
+                    '<table ng-if="view.selected == \'minute\'">' +
+                    '<tbody>' +
+                    '<tr ng-repeat="seconds in minuteView.seconds">' +
+                    '<td ng-repeat="second in seconds" ng-class="second.class" ng-bind="second.label" ng-click="minuteView.setSecond(second)"></td>' +
+                    '</tr>' +
+                    '</tbody>' +
+                    '</table>' +
+                    '</div>' +
+                    '</div>'
                 );
 
                 if ($scope['datetimeDefault'] === "false") {
@@ -256,7 +256,7 @@
 
                             if (top + $window.pageYOffset - container.offsetHeight > 0 && top > winHeight / 2) $scope.picker.addClass('top');
                             if (left + container.offsetWidth > winWidth) $scope.picker.addClass('left');
-                        }                        
+                        }
                     },
                     // utility
                     unit: function () { return $scope.view.selected == 'decade' ? 10 : 1; },
@@ -564,6 +564,8 @@
                     }
                 });
                 $scope.$watch('value', function (value, previous) {
+                    var viewModel = angular.element($scope.contents.find("[data-ng-model]")).controller("ngModel");
+
                     if (!angular.isDefined($scope.valueMoment)) return;
                     var oldValue = $scope.model,
                         newValue = $scope.valueMoment.format($scope.format);
@@ -578,11 +580,17 @@
                                     newValue = newValue.slice(0, 11).concat(moment("12:00 a.m.", "LT")._i);
                                 }
                             }
+
                             $scope.model = newValue;
-                            if (angular.isFunction($scope.change))
+
+                            if (angular.isFunction($scope.change)) {
                                 $timeout(function () {
                                     $scope.change({ newValue: newValue, oldValue: oldValue });
-                                }, 0, false);
+                                });
+                            }
+
+                            viewModel.$setViewValue(newValue);
+                            viewModel.$render();
                         });
                 });
                 $scope.$watch('[view.selected, view.value]', $scope.view.render, true);
