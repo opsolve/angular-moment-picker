@@ -48,6 +48,9 @@
 .moment-picker td.disabled,
 .moment-picker td.disabled:hover { color: #abbbc7; background: none; cursor: default; }
 
+/* today */
+.moment-picker .moment-picker-today-action { text-align: center; text-decoration: underline; }
+
 /* decade view  - year view */
 .moment-picker .decade-view td,
 .moment-picker .year-view td { height: 3.4em; }
