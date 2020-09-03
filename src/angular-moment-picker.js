@@ -1,3 +1,4 @@
+/*! Angular Moment Picker - v0.5.6 - https://github.com/indrimuska/angular-moment-picker - (c) 2015 Indri Muska - MIT */
 (function (angular) {
 
     var momentPickerProvider = (function () {
@@ -92,6 +93,7 @@
                     '</tr>' +
                     '</thead>' +
                     '</table>' +
+                    '<div class="moment-picker-today-action" ng-click="setToday()"><span ng-bind="view.todayText"></span></div>' +
                     '<div class="moment-picker-specific-views">' +
                     '<table ng-if="view.selected == \'decade\'">' +
                     '<tbody>' +
@@ -659,6 +661,15 @@
                         }
                     }
                 });
+                $scope.setToday = function () {
+                    $timeout(function () {
+                        $scope.valueMoment = moment();
+                        $scope.view.moment = $scope.valueMoment.clone();
+                        $scope.view.update();
+                        $scope.valueUpdate($scope.valueMoment);
+                    });
+                    $timeout($scope.view.close);
+                }
             };
 
         return MomentPickerDirective;
