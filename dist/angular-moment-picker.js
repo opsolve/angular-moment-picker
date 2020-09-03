@@ -265,6 +265,7 @@
                     precision: function () { return $scope.view.selected.replace('decade', 'year'); },
                     // header
                     title: '',
+                    todayText: moment.locale() === "es" ? "hoy" : "today",
                     previous: {
                         selectable: true,
                         label: $sce.trustAsHtml($scope.leftArrow),
